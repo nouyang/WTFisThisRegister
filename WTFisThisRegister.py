@@ -1,5 +1,5 @@
 # all the imports
-import sqlite3
+import sqlite3, os
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 from contextlib import closing
@@ -8,7 +8,7 @@ from databaseconfig import secretkey, username, password
 # configuration
 DATABASE = '/tmp/flaskr.db'
 DEBUG = False
-SECRET_KEY = os.environ['SECRET_KEY'] #for heroku deploys.
+SECRET_KEY = os.environ['SECRETKEY'] #for heroku deploys.
 #SECRET_KEY = secretkey #for local deploys
 USERNAME = username
 PASSWORD = password
