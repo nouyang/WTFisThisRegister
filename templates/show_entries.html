@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+  <h2>Submit new helptext</h2>
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+      <dl>
+        <dt>Keyword:
+        <dd><input type=text size=30 name=keyword>
+        <dt>Helptext:
+        <dd><textarea name=helptext rows=5 cols=40></textarea>
+        <dd><input type=submit value="Add to entries">
+      </dl>
+    </form>
+  {% endif %}
+  
+  <ul class=entries>
+  {% for entry in entries %}
+    <li><h2>{{ entry.keyword }}</h2>
+    <div class = helptext>{{ entry.helptext|safe }}</div>
+    {% if session.logged_in %}
+    <form action="{{ url_for('delete_entry') }}" method=post class=delete-entry>
+    <input type=hidden value="{{ entry.keyword }}" name=entry_to_delete></input>
+    <input type=submit value="Delete this entry"></input>
+    </form>
+    {% endif %}
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far.</em>
+  {% endfor %}
+  </ul>
+{% endblock %}
