@@ -3,16 +3,17 @@ import sqlite3, os
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 from contextlib import closing
-from databaseconfig import secretkey, username, password
+try:
+    from databaseconfig import secretkey, username, password
+    SECRET_KEY, USERNAME, PASSWORD  = secretkey, username, password
+except ImportError: #we are running foreman or on heroku
+    SECRET_KEY = os.environ.get('SECRETKEY') 
+    USERNAME = os.environ.get('USERNAME')
+    PASSWORD = os.environ.get('PASSWORD')
 
 # configuration
 DATABASE = '/tmp/flaskr.db'
 DEBUG = False
-SECRET_KEY = os.environ.get('SECRETKEY') #for heroku deploys.
-if SECRET_KEY == None:
-    SECRET_KEY = secretkey
-USERNAME = username
-PASSWORD = password
 
 # create our little application :)
 app = Flask(__name__)
