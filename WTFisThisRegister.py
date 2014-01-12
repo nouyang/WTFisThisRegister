@@ -3,7 +3,7 @@ import sqlite3, os
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 from contextlib import closing
-try:
+try: #we are deploying locally with python
     from databaseconfig import secretkey, username, password
     SECRET_KEY, USERNAME, PASSWORD  = secretkey, username, password
     DEBUG = True
@@ -14,7 +14,7 @@ except ImportError: #we are running foreman or on heroku
     DEBUG = False
 
 # configuration
-DATABASE = '/tmp/flaskr.db'
+DATABASE = 'flaskr.db'
 
 # create our little application :)
 app = Flask(__name__)
