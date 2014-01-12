@@ -1,1 +1,1 @@
-web: gunicorn WTFisThisRegister:app
+web: python WTFisThisRegister.py

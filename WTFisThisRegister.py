@@ -6,14 +6,15 @@ from contextlib import closing
 try:
     from databaseconfig import secretkey, username, password
     SECRET_KEY, USERNAME, PASSWORD  = secretkey, username, password
+    DEBUG = True
 except ImportError: #we are running foreman or on heroku
     SECRET_KEY = os.environ.get('SECRETKEY') 
     USERNAME = os.environ.get('USERNAME')
     PASSWORD = os.environ.get('PASSWORD')
+    DEBUG = False
 
 # configuration
 DATABASE = '/tmp/flaskr.db'
-DEBUG = False
 
 # create our little application :)
 app = Flask(__name__)
