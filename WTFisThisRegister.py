@@ -8,7 +8,7 @@ from databaseconfig import secretkey, username, password
 # configuration
 DATABASE = '/tmp/flaskr.db'
 DEBUG = False
-SECRET_KEY = os.environ['S3_KEY'] #for heroku deploys.
+SECRET_KEY = os.environ['SECRET_KEY'] #for heroku deploys.
 #SECRET_KEY = secretkey #for local deploys
 USERNAME = username
 PASSWORD = password
