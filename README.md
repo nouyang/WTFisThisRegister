@@ -1,16 +1,14 @@
 WTFisThisRegister
 =================
 
-WTFisThisRegister is based on flas
+WTFisThisRegister is simply the Flask tutorial app
+http://flask.pocoo.org/docs/tutorial/
+with an two added functions: search and delete entries.
 
 It was developed as a small dictionary app for displaying AVR documentation
 in response to search queries. This arose in response to the fact that most of
 the documentation for AVR is buried in datasheets that are hard to search and 
 keep track of which pages are relevant to you.
-
-This is simply the Flask tutorial app
-http://flask.pocoo.org/docs/tutorial/
-with an two added functions: search and delete entries.
 
 In the future, hopefully this will turn into something closer to http://explainshell.com
 instead. However, for the actual compilation of user-submitted documentation,
@@ -52,7 +50,7 @@ and go to the URL given in the shell output. It should be similar to
 http://salty-retreat-5363.herokuapp.com/.
 
 Note: You can generate a secretkey using python:
-```
+```python
 $ python 
 >>> import os, binascii
 >>> binascii.hexlify(os.urandom(24))
