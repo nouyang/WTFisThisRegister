@@ -24,7 +24,7 @@ Version
 
 Quickstart
 -----
-If you already have pip, virtualenv, and heroku:
+If you already have git, pip, virtualenv, and heroku:
 ```
 $ git clone https://github.com/nouyang/WTFisThisRegister.git
 $ cd WTFisThisRegister
@@ -62,6 +62,11 @@ Project Setup
 ```sh
 $ git clone https://github.com/nouyang/WTFisThisRegister.git
 ```
+If you don't have git,
+```sh
+$ sudo apt-get install git
+```
+For more information, see https://help.github.com/articles/set-up-git .
 
 #### Install Pip
 Install pip, which is a [package management](http://en.wikipedia.org/wiki/Package_management_system) system for Python, similar to gem or npm for Ruby and Node, respectively. 
@@ -136,6 +141,20 @@ if you created a .env file.
 
 Deploy on Heroku
 ------
+If you've never used Heroku before, go to http://heroku.com and create an account.
+
+We need to install the heroku toolchain and then connect to it:
+https://toolbelt.heroku.com/
+For ubuntu, this is just:
+```sh
+$ wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh 
+```
+
+https://devcenter.heroku.com/articles/getting-started-with-python
+```sh
+$ heroku login
+```
+
 We create a new heroku app, commit our files to it, and then set the
 configuration variables.
 
